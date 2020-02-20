@@ -1,13 +1,1804 @@
 {
-	"id": "9cd5484b-e08f-4557-91fa-7ff411ae36e2",
-	"name": "Stackoverflow-lite",
-	"description": "Stackoverflow lite is a simple API allowing users to view post questions, answers and vote for them. You can view this documentation over at [Apiary](https://stackoverflowlite2.docs.apiary.io).\n",
-	"auth": null,
-	"events": [
+	"info": {
+		"_postman_id": "fa44437c-9b71-4b6b-bce3-7170a89efc03",
+		"name": "CoreMD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MasterDataSet",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "uid",
+								"value": "ramya.kvr@weinvest.net",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "KizZv-_xW-Gous4cUOgUBw",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "7ZMqWfKBVxZvfGyxnqwefg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/master_data_sets",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"master_data_sets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"events\": [\n    {\n      \"row\": 1,\n      \"event_data\": {\n        \"name\": \"New Year\",\n        \"event_date\": \"2021-01-02\",\n        \"country\": \"AQ\",\n        \"product_type\": \"Equity\"\n      }\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/events/?",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"events",
+								""
+							],
+							"query": [
+								{
+									"key": "product_types[]",
+									"value": "Equity",
+									"disabled": true
+								},
+								{
+									"key": "sort[]",
+									"value": "-updated_at",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sync",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " { \"fetched_data\": [      {\n        \"id\": 9,\n        \"wi_code\": \"WC-PRTP-CORE-9\",\n        \"name\": \"test\"\n    }\n    ]}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}api/v1/asset_class_mappings",
+							"host": [
+								"{{MDS_ENDPOINT}}api"
+							],
+							"path": [
+								"v1",
+								"asset_class_mappings"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "\n"
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "Retry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/job_tracker/jobs/1/retry",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job_tracker",
+								"jobs",
+								"1",
+								"retry"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RetryFailed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MDS_ENDPOINT}}/api/v1/job_tracker/jobs/1/retry",
+									"host": [
+										"{{MDS_ENDPOINT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"job_tracker",
+										"jobs",
+										"1",
+										"retry"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 21 May 2019 11:04:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "93874d7e-37a0-4cac-ba45-caa6e1050d6d"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.004245"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"retry_status\": \"Enqueued for Sync\"\n}"
+						},
+						{
+							"name": "RetrySucceededJob",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MDS_ENDPOINT}}/api/v1/job_tracker/jobs/1/retry",
+									"host": [
+										"{{MDS_ENDPOINT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"job_tracker",
+										"jobs",
+										"1",
+										"retry"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 21 May 2019 11:04:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "93874d7e-37a0-4cac-ba45-caa6e1050d6d"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.004245"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"retry_status\": \"Job is not retryable\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/job_tracker/jobs",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job_tracker",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SwitchDetails",
+			"item": [
+				{
+					"name": "SwitchDetails Create",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"switch_details\": {\n    \"Switch In\": [\n      {\n        \"flag\": \"Yes\",\n        \"synonym_type\": \"ISIN\",\n        \"synonym_value\": \"0P000071C8\",\n        \"currency\": \"CAD\",\n        \"effective_date\": \"2019-05-22\",\n        \"switching_lag\": 3\n      }\n    ],\n    \"Switch Out\": [\n      {\n        \"flag\": \"Yes\",\n        \"synonym_type\": \"ISIN\",\n        \"synonym_value\": \"F0CAN05M90\",\n        \"currency\": \"CAD\",\n        \"effective_date\": \"2019-05-21\",\n        \"switching_lag\": 1\n      }\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments/WI-CORE-20364/switch_details",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments",
+								"WI-CORE-20364",
+								"switch_details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SwitchDetails Upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"switch_details\": [\n    {\n      \"switch_info\": {\n        \"switch_in_flag\": \"Yes\",\n        \"switch_in_synonym_type\": \"ISIN\",\n        \"switch_in_synonym_value\": \"INF760K01035\",\n        \"switch_in_currency\": \"INR\",\n        \"switch_out_flag\": \"Yes\",\n        \"switch_out_synonym_type\": \"ISIN\",\n        \"switch_out_synonym_value\": \"INF209K01BR9\",\n        \"switch_out_currency\": \"INR\",\n        \"effective_date\": \"2019-05-22\",\n        \"switching_lag\": 3\n      },\n      \"row\": 1\n    },\n    {\n      \"switch_info\": {\n        \"switch_in_flag\": \"No\",\n        \"switch_in_synonym_type\": \"ISIN\",\n        \"switch_in_synonym_value\": \"INF760K01035\",\n        \"switch_in_currency\": \"INR\",\n        \"switch_out_flag\": \"Yes\",\n        \"switch_out_synonym_type\": \"ISIN\",\n        \"switch_out_synonym_value\": \"INF200K01QX4\",\n        \"switch_out_currency\": \"INR\",\n        \"effective_date\": \"2019-05-21\",\n        \"switching_lag\": 1\n      },\n      \"row\": 2\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/switch_details",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"switch_details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SwitchDetails Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/switch_details?wi_codes[]=WI-CORE-20364&wi_codes[]=WI-CORE-20383&wi_codes[]=WI-CORE-20382&wi_codes[]=WI-CORE-20381",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"switch_details"
+							],
+							"query": [
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-20364"
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-20383"
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-20382"
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-20381"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FxRate",
+			"item": [
+				{
+					"name": "FetchFxRates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fx_date\": \"2019-05-24\"\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/fx_rates/fixer_fetch",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fx_rates",
+								"fixer_fetch"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DataProviderConfig",
+			"item": [
+				{
+					"name": "DataProviderConfig Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_provider_configs",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_provider_configs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DataProviderConfig Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_provider_configs/5",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_provider_configs",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SyncData",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_provider_configs/7/sync",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_provider_configs",
+								"7",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filter_set_id\": 3,\n  \"data_provider_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_provider_configs",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_provider_configs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PriceProviderConfig",
+			"item": [
+				{
+					"name": "PriceProviderconfig Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/price_provider_configs",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"price_provider_configs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SyncEodPrice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/price_provider_configs/28/sync",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"price_provider_configs",
+								"28",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filter_set_id\": 3,\n  \"price_provider_id\": 2\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/price_provider_configs",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"price_provider_configs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prices",
+			"item": [
+				{
+					"name": "LivePriceFetch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/prices?wi_codes[]=WI-CLIENT-2557&date=2019-06-200T00:00:00+05:00",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"prices"
+							],
+							"query": [
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CLIENT-2557"
+								},
+								{
+									"key": "price_type",
+									"value": "live",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-06-200T00:00:00+05:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrument Price Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"instrument_prices\" : [{\"instrument_prices_data\" : {\"synonym_type\" : \"MorningstarID\", \"synonym_value\" : \"FOUSA00D02\", \"fetch_type\" : \"Currency\", \"fetch_value\" : \"ALL\", \"price_date\" : \"20/06/2019\", \"price_type\" : \"eod\", \"close\" : 114.95010000000002, \"currency_code\": \"ALL\"}}]}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instrument_prices",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instrument_prices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Currency",
+			"item": [
+				{
+					"name": "Currency update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"currencies\": [{\"id\": 413, \"fx_enabled\": \"true\"}]}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/currencies",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"currencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/marketdata/api/v1/master_data_sets/countries/fetch",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marketdata",
+								"api",
+								"v1",
+								"master_data_sets",
+								"countries",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instrument",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"instruments\": {\n    \"Equity\": [\n      {\n        \"row\": 1,\n        \"instrument_data\": {\n          \"Trading Currency\": \"INR\",\n          \"Security Status\": \"ACTIVE\",\n          \"Asset Class\": \"ASIA EQUITY\",\n          \"Sub Asset Class\": \"ASIA EQUITY\",\n          \"Exchange\": \"XGHA\",\n          \"Core Asset Class\": \"Equity\",\n          \"ISIN\": \"ISIN123\"\n        }\n      }\n    ]\n  },\n  \"dry_run\": false\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments/WI-CLIENT-2540",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments",
+								"WI-CLIENT-2540"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"sync_disabled_attributes\": []}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments/WI-CORE-22147?sync_disabled_attributes=[]",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments",
+								"WI-CORE-22147"
+							],
+							"query": [
+								{
+									"key": "sync_disabled_attributes",
+									"value": "[]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments?",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments"
+							],
+							"query": [
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15819",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15877",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15828",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15919",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15742",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15875",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15740",
+									"disabled": true
+								},
+								{
+									"key": "wi_codes[]",
+									"value": "WI-CORE-15956",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InstrumentPrice",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instruments/WI-CLIENT-2557/instrument_prices?start_date=2019-06-20T01:00:00+08:00",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instruments",
+								"WI-CLIENT-2557",
+								"instrument_prices"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2019-06-20T01:00:00+08:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"instrument_prices\": [\n    {\n      \"row\": 1,\n      \"instrument_prices_data\": {\n        \"synonym_type\": \"Krunsgri Product Code\",\n        \"synonym_value\": \"BAY272A\",\n        \"fetch_type\": \"Country\",\n        \"fetch_value\": \"TH\",\n        \"close\": 12.336,\n        \"price_date\": \"26/06/2019 \",\n        \"price_type\": \"eod\",\n        \"currency_code\": \"THB\"\n      }\n    }\n  ],\n  \"dry_run\": true\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/instrument_prices",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"instrument_prices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"KBANK\"}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/clients",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/clients",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Synonyms",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/synonyms",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synonyms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"ISIN\"\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/synonyms",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synonyms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FilterSet",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/filter_sets",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_sets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filter_attributes\": {\n    \"Trading Currency\": [\n      134\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/filter_sets/3",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_sets",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Currency Filter\",\n  \"filter_attributes\": {\n    \"Trading Currency\": [\n      78\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/filter_sets",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"filter_sets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DataProviders",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_providers",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_providers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AssetClass",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"asset_class_name\": \"Alternative\",\n  \"core_asset_class_id\": 6\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"asset_classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"asset_classes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AssetClassMapping",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"core_asset_class_id\": 1,\n  \"asset_class_id\": 206,\n  \"sub_asset_class_id\": 374\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/asset_class_mappings",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"asset_class_mappings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/asset_class_mappings",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"asset_class_mappings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SubAssetClass",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sub_asset_class_name\": \"THB Cash\",\n  \"asset_class_id\": 59\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/sub_asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sub_asset_classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/sub_asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"sub_asset_classes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CoreAssetClass",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/core_asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"core_asset_classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"core_asset_class_name\": \"Alternatives\"\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/core_asset_classes",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"core_asset_classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"core_asset_class\": {\n  \t\"asset_class_mappings_attributes\": [\n  \t\t{\n  \t\t\t\"asset_class_id\": 74\n  \t\t\t}\n  \t]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/core_asset_classes/9",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"core_asset_classes",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PriceProvider",
+			"item": [
+				{
+					"name": "Template",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/price_providers",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"price_providers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DataProvider",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{MDS_ENDPOINT}}/api/v1/data_providers",
+							"host": [
+								"{{MDS_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data_providers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"ramya.kvdsfr@weinvest.net\",\n\t\"password\" :  \"ramyakvr\",\n\t\"password_confirmation\" :  \"ramyakvr\",\n\t\"confirm_success_url\" : \"marketdata/health-check\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin_users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin_users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User SignIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"ramya.kvr@weinvest.net\",\n\t\"password\" :  \"ramyakvr\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin_users/sign_in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin_users",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Out",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin_users/sign_out",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin_users",
+								"sign_out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/marketdata/api/v1/events.json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "uid",
+								"value": "ramya.kvr@weinvest.net",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "JbGASq0nHo8lUfNf1r-qCA",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "MvyGmNJeAIo_x2qiyF6wbA",
+								"type": "text"
+							},
+							{
+								"key": "token-type",
+								"value": "Bearer",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/marketdata/api/v1/events.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marketdata",
+								"api",
+								"v1",
+								"events.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "access-token",
+								"value": "7ZMqWfKBVxZvfGyxnqwefg",
+								"type": "text"
+							},
+							{
+								"key": "uid",
+								"value": "ramya.kvr@weinvest.net",
+								"type": "text"
+							},
+							{
+								"key": "client",
+								"value": "KizZv-_xW-Gous4cUOgUBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"full_name\": \"Test2\",\n\t\"email\": \"test2@weinvest.net\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/mds_users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"mds_users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authorization",
+			"item": []
+		},
+		{
+			"name": "Product Type",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Equity\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000//marketdata/api/v1/product_types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"",
+								"marketdata",
+								"api",
+								"v1",
+								"product_types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health-check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MDS_ENDPOINT}}/health-check",
+					"host": [
+						"{{MDS_ENDPOINT}}"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a554faac-89b2-483f-b23c-16cc5c167c79",
+				"id": "d2e7bd44-7e07-49ef-bf19-b38ee3b1efcd",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -17,7 +1808,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "548e64cb-efe2-4b7e-b4f3-24ca85b36ef0",
+				"id": "f6d24c87-7172-4099-86ed-3110a1c7d79e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -25,515 +1816,13 @@
 			}
 		}
 	],
-	"variables": [],
-	"order": [
-		"fa832817-1e72-4223-aa82-36e86f6aae26",
-		"7ac20723-0dec-4e53-95c2-684a46f3949f",
-		"95dd9436-d931-4354-88d4-9acaa1cf92bd",
-		"e467aa8b-fe4e-43e1-80a2-7f24869c5b1a",
-		"f3ad5fd7-8547-4fac-9cb8-a0d24cfd019a",
-		"ca7e1089-a3aa-4d45-8002-19716360e6ea",
-		"0ba72fb5-b871-43d7-8eb7-61fd3a308663",
-		"1fa44e91-88e2-4a9d-adf1-91bbf374af86",
-		"b00ff201-e343-4043-998d-6d8b07bd71e3",
-		"342fcab2-a59d-4520-9886-1cc9b4c943d2",
-		"3316e33a-5e63-4324-ba6b-995352f6d264",
-		"f64dac2d-4f51-40e6-8a16-7d68c2148d4b",
-		"8f07e507-e677-4a7a-a248-c1e0a3525d3b",
-		"ba53fc34-5eb8-4e9e-9145-613997e0dfd5",
-		"bd6b79b8-27f3-43b9-88b7-79a565de388f",
-		"5d6fd9cf-e46d-44e9-ade2-61d2fd1ec7f9",
-		"7c5cc7ad-920b-45ce-a4cf-c6c4124731b1",
-		"1acb2a78-dd14-499e-bf66-be8e61e7aa4c"
-	],
-	"folders_order": [],
-	"folders": [],
-	"requests": [
+	"variable": [
 		{
-			"id": "0ba72fb5-b871-43d7-8eb7-61fd3a308663",
-			"name": "Users: List users",
-			"url": "http://127.0.0.1:5000/api/v1/auth/users",
-			"description": "This resource will list all users.",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU5LCJpYXQiOjE1MzQ2NjI0MDIsImV4cCI6MTUzNzM0MDgzMn0.5Ir5av92wC2mFptnj8V1KVRxOkjWweHI47twx9EAAts"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "1acb2a78-dd14-499e-bf66-be8e61e7aa4c",
-			"name": "Comments:  Create a comment",
-			"url": "http://127.0.0.1:5000/api/v1/questions/answers/comment/3",
-			"description": "A Comment object has the following attributes:\n\n+ user_id: - Commenting user id\n+ created_at - An ISO8601 date when the question was published.\n+ comment_body - String: Comment description\n+ Parameters\n    + answer_id: 1 (required, number) - ID of the answer in form of an integer\n",
-			"data": [],
-			"dataMode": "params",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzQ3MzcxMzgsImlhdCI6MTUzNDY1MDcwOCwic3ViIjoyfQ.OWBsauF3hT1arjcR2QnWBr_X3w90Qjfku1Gf2XlOH5Q"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "1fa44e91-88e2-4a9d-adf1-91bbf374af86",
-			"name": "User: Login",
-			"url": "http://127.0.0.1:5000/api/v1/auth/login",
-			"description": "This action allows you to login and and get a JWT authorization token.\n+ email: (required, string) - User email\n+ password: (required, string) - User password\n",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\n\"username\": \"sky\",\n\"email\": \"sky@Jhames.com\",\n\"password\": \"sdsdfsdf9s0d9fs09sf\" }",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "3316e33a-5e63-4324-ba6b-995352f6d264",
-			"name": "Users: Update user information",
-			"url": "http://127.0.0.1:5000/api/v1/auth/users/1",
-			"description": "",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "PUT",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\n\"username\": \"Users\",\n\"email\": \"sdfs@sdfs.com\",\n\"password\": \"sdsdfsdf9s0d9fs09sf\" }",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "342fcab2-a59d-4520-9886-1cc9b4c943d2",
-			"name": "Users: Retrieve single user",
-			"url": "http://127.0.0.1:5000/api/v1/auth/users/12",
-			"description": "This action allows you to retreive user details.\n+ Parameters\n    + user_id: 1 (required, number) - ID of user you want details displayed\n    ",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU5LCJpYXQiOjE1MzQ2NjI0MDIsImV4cCI6MTUzNzM0MDgzMn0.5Ir5av92wC2mFptnj8V1KVRxOkjWweHI47twx9EAAts"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "5d6fd9cf-e46d-44e9-ade2-61d2fd1ec7f9",
-			"name": "Answers: Retrieve an answer",
-			"url": "http://127.0.0.1:5000/api/v1/questions/answers/6",
-			"description": "This action allows you to retreive a single answer details.\n+ Parameters\n    + answer_id: 1 (required, number) - ID of answer you to display",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mzc2NDQyMzAsImlhdCI6MTUzNDk2NTcwMCwic3ViIjoxNH0.T8Kkz9EhMSAS5Nk4tgZxFp162pXWOZ_ZXqt_8hH305Q"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "7ac20723-0dec-4e53-95c2-684a46f3949f",
-			"name": "Question: Create Question",
-			"url": "http://127.0.0.1:5000/api/v1/questions/",
-			"description": "You may create your own question using this action. It takes a JSON object containing a question title and body.\n\n+ title (string) - The question title\n+ body (string) - Question description body",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mzc2MjgyODQsInN1YiI6MTQsImlhdCI6MTUzNDk0OTc1NH0.5TH6cs95o4Wd9ITMI0qvsiEHPNtbOtcqay9-7tWPTW8",
-						"type": "string"
-					}
-				]
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"title\": \"sdfsdfsf\", \"body\": \"sdfsfffssd\" }",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "7c5cc7ad-920b-45ce-a4cf-c6c4124731b1",
-			"name": "Votes: Upvote/Downvote",
-			"url": "http://127.0.0.1:5000/api/v1/questions/answers/vote/1",
-			"description": "A Vote object has the following attributes:\n\n+ user_id: - Voters user id\n+ created_at - An ISO8601 date when the question was published.\n+ vote - Boolean: True to upvote / False to down vote\n\n+ Parameters\n    + answer_id: 1 (required, number) - ID of the answer in form of an integer\n",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mzc2NDQyMzAsImlhdCI6MTUzNDk2NTcwMCwic3ViIjoxNH0.T8Kkz9EhMSAS5Nk4tgZxFp162pXWOZ_ZXqt_8hH305Q",
-						"type": "string"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"vote\": \"true\"}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "8f07e507-e677-4a7a-a248-c1e0a3525d3b",
-			"name": "Answers: Post an answer",
-			"url": "http://127.0.0.1:5000/api/v1/questions/2/answers",
-			"description": "This action will allow you to post an answer to the specified question\n\nA Question object has the following attributes:\n\n+ answer_body - Answer descriptive body\n\n+ Parameters\n    + question_id: 1 (required, number) - ID of the Question in form of an integer\n",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzQ3MzcxMzgsImlhdCI6MTUzNDY1MDcwOCwic3ViIjoyfQ.OWBsauF3hT1arjcR2QnWBr_X3w90Qjfku1Gf2XlOH5Q"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"answer_body\": \"I lovehjhh JKJK\"}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "95dd9436-d931-4354-88d4-9acaa1cf92bd",
-			"name": "Question: Update question",
-			"url": "http://127.0.0.1:5000/api/v1/questions/1",
-			"description": "User can update a question using this action. It takes a JSON object containing a question title and body.\n\n+ title (string) - The question title\n+ body (string) - Question description body",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "PUT",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mzc2MjgyODQsInN1YiI6MTQsImlhdCI6MTUzNDk0OTc1NH0.5TH6cs95o4Wd9ITMI0qvsiEHPNtbOtcqay9-7tWPTW8",
-						"type": "string"
-					}
-				]
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"title\": \"New sdfsdftitle\", \"body\": \"this is the new body\"}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "b00ff201-e343-4043-998d-6d8b07bd71e3",
-			"name": "Users: Create user",
-			"url": "http://127.0.0.1:5000/api/v1/auth/signup",
-			"description": "You may create your own account using this action. \nIt takes a JSON object containing a user email, password and username as profile and authorization details.\n\n+ useraname (string) - User name\n+ email (string) - A valid user email\n+ password (string) - Strong login password",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "POST",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzQ2MjE3MjAsInN1YiI6bnVsbCwiZXhwIjoxNTM0NzA4MTUwfQ.OMpZFKQDueMSE7dZhWIyzAxSKmHii6fsB3lD6B_NvS4",
-						"type": "string"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\n\"username\": \"sky\",\n\"email\": \"sky@Jhames.com\",\n\"password\": \"sdsdfsdf9s0d9fs09sf\" }",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "ba53fc34-5eb8-4e9e-9145-613997e0dfd5",
-			"name": "Answer: List all answers",
-			"url": "http://127.0.0.1:5000/api/v1/questions/answers",
-			"description": "You may ist all answers using this action.",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Mzc2NDQyMzAsImlhdCI6MTUzNDk2NTcwMCwic3ViIjoxNH0.T8Kkz9EhMSAS5Nk4tgZxFp162pXWOZ_ZXqt_8hH305Q"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "bd6b79b8-27f3-43b9-88b7-79a565de388f",
-			"name": "Answer:  Update answer",
-			"url": "http://127.0.0.1:5000/api/v1/questions/3/answers/1",
-			"description": "This action will Update an answer\n+ Parameters\n    + answer_id: 1 (required, number) - ID of the answer in form of an integer\n",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"method": "PUT",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU5LCJpYXQiOjE1MzQ2NjI0MDIsImV4cCI6MTUzNzM0MDgzMn0.5Ir5av92wC2mFptnj8V1KVRxOkjWweHI47twx9EAAts"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"body\": \"i asdasda programming\", \"user_id\": \"1\",\n  \"accepted\": \"true\"\n\n}",
-			"headers": "Content-Type: application/json\n",
-			"pathVariables": {}
-		},
-		{
-			"id": "ca7e1089-a3aa-4d45-8002-19716360e6ea",
-			"name": "Questions: User questions",
-			"url": "http://127.0.0.1:5000/api/v1/users/questions",
-			"description": "Users can fetch all questions he/she has ever asked on the platform.",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU5LCJpYXQiOjE1MzQ2NjI0MDIsImV4cCI6MTUzNzM0MDgzMn0.5Ir5av92wC2mFptnj8V1KVRxOkjWweHI47twx9EAAts"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "e467aa8b-fe4e-43e1-80a2-7f24869c5b1a",
-			"name": "Question: Delete Question",
-			"url": "http://127.0.0.1:5000/api/v1/questions/3",
-			"description": "You may delete your own question using this action. It takes a JSON object containing a question title and body.\n\n+ question_id: 1 (required, number) - ID of the Question in form of an integer",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzQ3MzcxMzgsImlhdCI6MTUzNDY1MDcwOCwic3ViIjoyfQ.OWBsauF3hT1arjcR2QnWBr_X3w90Qjfku1Gf2XlOH5Q"
-					}
-				],
-				"type": "bearer"
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "f3ad5fd7-8547-4fac-9cb8-a0d24cfd019a",
-			"name": "Questions: Retrieve a question",
-			"url": "http://127.0.0.1:5000/api/v1/questions/1",
-			"description": "You may retrieve a question with all its answers using this action. It takes a question id.",
-			"data": [],
-			"dataMode": "raw",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzQ4NTM0ODEsImV4cCI6MTUzNzUzMTkxMSwic3ViIjoxNH0.hffENsxYMzRwSs-QdIZjpWstHClJ9ndWs1DGRwD83cA",
-						"type": "string"
-					}
-				]
-			},
-			"events": [],
-			"folder": null,
-			"rawModeData": "{\"user\": \"sfsdfsdf\"}",
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "f64dac2d-4f51-40e6-8a16-7d68c2148d4b",
-			"name": "Users: Delete user",
-			"url": "http://127.0.0.1:5000/api/v1/users/1/",
-			"description": "",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "DELETE",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": null,
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
-		},
-		{
-			"id": "fa832817-1e72-4223-aa82-36e86f6aae26",
-			"name": "Question: List questions",
-			"url": "http://127.0.0.1:5000/api/v1/questions",
-			"description": "Resources related to questions in the API.\n\nA Question object has the following attributes:\n\n+ question_id\n+ created_at - An ISO8601 date when the question was published.\n+ title - Question brief title\n+ body - Body description\n+ user_id - Author of the question.\n\n+ Parameters\n    + question_id: 1 (required, number) - ID of the Question in form of an integer\n\n\n\nList all questions",
-			"data": null,
-			"dataMode": "params",
-			"headerData": [],
-			"method": "GET",
-			"pathVariableData": [],
-			"queryParams": [],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "JWT  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzQ4NTM0ODEsImV4cCI6MTUzNzUzMTkxMSwic3ViIjoxNH0.hffENsxYMzRwSs-QdIZjpWstHClJ9ndWs1DGRwD83cA",
-						"type": "string"
-					}
-				]
-			},
-			"events": [],
-			"folder": null,
-			"headers": "",
-			"pathVariables": {}
+			"id": "23bccf9c-a146-4f0b-a8c8-16141fbc67c3",
+			"key": "MDS_ENDPOINT",
+			"value": "http://coredev-marketdata-staging.weinvest.net:3000/marketdata/api/v1",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }
